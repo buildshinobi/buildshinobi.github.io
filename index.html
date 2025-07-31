@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shinobi MMO - FAN Wiki & Build Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Shinobi MMO FAN Site</div>
+  </header>
+
+  <main>
+    <div class="tabs">
+      <button class="tab-button active" data-target="buildmaker">Calculadora de Build</button>
+      <button class="tab-button" data-target="formulas" onclick="window.location.href='pages/formulas.html'">Fórmulas & Segredos</button>
+      <button class="tab-button" data-target="hunts">Guia de Hunt</button>
+      <button class="tab-button" data-target="links">Links Úteis</button>
+    </div>
+    
+    <div id="buildmaker" class="section active">
+      <h2>Calculadora de Build</h2>
+      <footer>
+        <p>Calculadora extremamente precisa (para Builds)<br>Use a parte de Itens com a consciência de uma taxa de erro de ~2% dos status</p>
+      </footer>
+      <div class="grid-container">
+        <div>
+            <h3>Atributos do Personagem</h3>
+            <div class="form-group">
+                <label for="bmLevelInput">Nível:</label>
+                <input type="number" id="bmLevelInput" min="1" max="800" value="800">
+            </div>
+            <div class="form-group"><label for="bmPower">Power:</label><input type="number" id="bmPower" min="0" value="400"></div>
+            <div class="form-group"><label for="bmResis">Resistance:</label><input type="number" id="bmResis" min="0" value="500"></div>
+            <div class="form-group"><label for="bmIntel">Intelligence:</label><input type="number" id="bmIntel" min="0" value="0"></div>
+            <div class="form-group"><label for="bmDex">Dexterity:</label><input type="number" id="bmDex" min="0" value="700"></div>
+        </div>
+        <div>
+            <h3>Equipamentos</h3>
+            <div class="form-group">
+                <label class="checkbox-label"><input type="checkbox" id="equipToggle"> Usar Equipamentos</label>
+            </div>
+            <div id="equipment-section" style="display:none;">
+                <div class="equipment-row"><div class="form-group item-select"><label for="eqSword">Espada:</label><select id="eqSword"></select></div><div class="form-group rarity-select"><label for="raritySword">Raridade:</label><select id="raritySword"></select></div></div>
+                <div class="equipment-row"><div class="form-group item-select"><label for="eqHelmet">Elmo:</label><select id="eqHelmet"></select></div><div class="form-group rarity-select"><label for="rarityHelmet">Raridade:</label><select id="rarityHelmet"></select></div></div>
+                <div class="equipment-row"><div class="form-group item-select"><label for="eqArmor">Armadura:</label><select id="eqArmor"></select></div><div class="form-group rarity-select"><label for="rarityArmor">Raridade:</label><select id="rarityArmor"></select></div></div>
+                <div class="equipment-row"><div class="form-group item-select"><label for="eqLegs">Calças:</label><select id="eqLegs"></select></div><div class="form-group rarity-select"><label for="rarityLegs">Raridade:</label><select id="rarityLegs"></select></div></div>
+                <div class="equipment-row"><div class="form-group item-select"><label for="eqBoots">Botas:</label><select id="eqBoots"></select></div><div class="form-group rarity-select"><label for="rarityBoots">Raridade:</label><select id="rarityBoots"></select></div></div>
+                <div class="equipment-row"><div class="form-group item-select"><label for="eqGloves">Luvas:</label><select id="eqGloves"></select></div><div class="form-group rarity-select"><label for="rarityGloves">Raridade:</label><select id="rarityGloves"></select></div></div>
+                <div class="equipment-row"><div class="form-group item-select"><label for="eqRing">Anel:</label><select id="eqRing"></select></div><div class="form-group rarity-select"><label for="rarityRing">Raridade:</label><select id="rarityRing"></select></div></div>
+                <div class="equipment-row"><div class="form-group item-select"><label for="eqAmulet">Amuleto:</label><select id="eqAmulet"></select></div><div class="form-group rarity-select"><label for="rarityAmulet">Raridade:</label><select id="rarityAmulet"></select></div></div>
+            </div>
+        </div>
+      </div>
+      <div id="buildmakerResult" class="result-box full-width"></div>
+    </div>
+
+    <div id="hunts" class="section">
+      <h2>Guia de Hunt por Nível</h2>
+      <div class="form-group">
+        <label for="huntLevel">Digite seu Nível:</label>
+        <input type="number" id="huntLevel" min="1" max="800" placeholder="Ex: 150">
+      </div>
+      <button type="button" class="calc-button" onclick="findHunt()">Encontrar Hunt</button>
+      <div id="huntResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <div id="links" class="section">
+      <h2>Links Úteis</h2>
+      <ul class="content-list">
+        <li><a class="link-button" href="https://play.google.com/store/apps/details?id=com.risesgame.shinobimmorising" target="_blank">Play Store</a></li>
+        <li><a class="link-button" href="https://apps.apple.com/br/app/shinobi-mmo-rising/id6447063278" target="_blank">App Store</a></li>
+        <li><a class="link-button" href="https://m.youtube.com/channel/UCTxEvTMQ94EIyiyij7mcD9A" target="_blank">YouTube Channel</a></li>
+        <li><a class="link-button" href="https://www.instagram.com/risesgamedeveloper/" target="_blank">Instagram</a></li>
+        <li><a class="link-button" href="https://discord.com/invite/t6exZ6kHc6" target="_blank">Discord</a></li>
+        <li><a class="link-button" href="mailto:risesgamedeveloper@gmail.com" target="_blank">Email</a></li>
+        <li><a class="link-button" href="https://risesteam.fandom.com/pt-br/wiki/ShinobiMMO_Wiki" target="_blank">Wiki (old)</a></li>
+        <li><a class="link-button" href="https://risesgamedeveloper.blogspot.com/2022/12/credits-and-attributions.html" target="_blank">Créditos / Credits</a></li>
+      </ul>
+    </div>
+  </main>
+  
+  <footer>
+    <p>| Shinobi MMO FAN Site - 2024 | By MAGyN |</p>
+  </footer>
+
+  <script src="js/formulas.js"></script>
+  <script src="js/itens.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

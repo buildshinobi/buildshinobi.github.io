@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fórmulas & Segredos - Shinobi MMO Wiki</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="../index.html" style="color: var(--primary-color); text-decoration: none;">Shinobi MMO FAN Site</a></div>
+  </header>
+
+  <main>
+     <div class="tabs">
+        <a href="../index.html" class="tab-button">Voltar</a>
+    </div>
+    
+    <div id="formulas" class="section active">
+        <h2>Fórmulas & Segredos</h2>
+        <p>Teste as mecânicas do jogo com suas próprias stats para entender o impacto de cada atributo.</p>
+
+        <h3>Calculadora de Dano de Skill</h3>
+        <div class="grid-container">
+            <div>
+                <div class="form-group"><label for="calcDanoGeral">Seu Dano Geral:</label><input type="number" id="calcDanoGeral" value="3000"></div>
+                <div class="form-group"><label for="calcDanoBaseSkill">Dano Base da Skill:</label><input type="number" id="calcDanoBaseSkill" value="210"></div>
+                <div class="form-group"><label for="calcDexterity">Sua Dexterity:</label><input type="number" id="calcDexterity" value="350"></div>
+                <div class="form-group"><label class="checkbox-label"><input type="checkbox" id="calcIsCrit" checked> É um Crítico?</label></div>
+            </div>
+            <div id="skillDamageResult" class="result-box"></div>
+        </div>
+        
+        <h3>Calculadora de HP</h3>
+        <div class="grid-container">
+             <div>
+                <div class="form-group"><label for="calcNivelHp">Seu Nível:</label><input type="number" id="calcNivelHp" value="800"></div>
+                <div class="form-group"><label for="calcResistance">Sua Resistance:</label><input type="number" id="calcResistance" value="500"></div>
+            </div>
+            <div id="hpResult" class="result-box"></div>
+        </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>| Shinobi MMO FAN Site - 2024 | By MAGyN |</p>
+  </footer>
+  <script src="../js/formulas.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
