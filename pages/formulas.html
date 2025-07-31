@@ -22,6 +22,8 @@
         <p data-pt="Aqui estão as fórmulas exatas que governam o combate, descobertas através da engenharia reversa. Entender isso é a chave para a otimização." data-en="Here are the exact formulas that govern combat, discovered through reverse engineering. Understanding this is the key to optimization.">Aqui estão as fórmulas exatas que governam o combate, descobertas através da engenharia reversa. Entender isso é a chave para a otimização.</p>
 
         <h3>Atributos Ofensivos</h3>
+        <p><strong>Dica:</strong> Os ataques tem uma variação de 10%. Ou seja, se você tiver calculado um dano bruto de 10000, no jogo, o dano aparecerá um número aleatório entre 9000 e 11000<br><br><br></p>
+
         <p><strong>General Damage (no itens):</strong><br><code>(2 + (level / 2 - 1)) + (Power * 1.125)</code><br><br>
         Essa fórmula é responsável por calcular o Damage base do seu level conforme seu Power.<br><br><br></p>
 
@@ -66,6 +68,15 @@
         Ou seja, assim como a redução de dano pela Defense, quanto mais Wisdom, mais inútil ele se torna.<br>
         De forma visual, quanto mais Wisdom um medic tiver, menos potência sua cura terá quando tiver mais Wisdom.</p>
         
+
+        <h3>Atributos de Utilidade</h3>
+        <p><strong>Vantagens e Desvantagens Elementais:</strong><br>
+        Cada Elemento tem uma vantagem e uma desvantagem sobre outros elementos.<br>
+        ... > Água > Fogo > Vento > Terra > Raio > Água > ...<br>
+        Quando <code>A > B</code>:<br>
+        Quando um Player de elemento A ataca um de elemento B com um ataque elemental, o dano é 30% maior;<br>
+        Quando um Player de elemento B ataca um de elemento A com um ataque elemental, o dano é 20% menor;</p>
+
         <h3>Os Segredos (Soft Caps)</h3>
         <p>Investir em um atributo para sempre nem sempre é a melhor opção. O jogo tem "soft caps", pontos onde o benefício de um atributo muda ou para de aumentar.</p>
         <div class="result-box">
