@@ -18,8 +18,61 @@
     </div>
     
     <div id="formulas" class="section active">
-        <h2>Fórmulas & Segredos</h2>
-        <p>Teste as mecânicas do jogo com suas próprias stats para entender o impacto de cada atributo.</p>
+        <h2 data-pt="Fórmulas & Segredos" data-en="Formulas & Secrets">Fórmulas & Segredos</h2>
+        <p data-pt="Aqui estão as fórmulas exatas que governam o combate, descobertas através da engenharia reversa. Entender isso é a chave para a otimização." data-en="Here are the exact formulas that govern combat, discovered through reverse engineering. Understanding this is the key to optimization.">Aqui estão as fórmulas exatas que governam o combate, descobertas através da engenharia reversa. Entender isso é a chave para a otimização.</p>
+
+        <h3>Atributos Ofensivos</h3>
+        <p><strong>General Damage (no itens):</strong><br><code>(2 + (level / 2 - 1)) + (Power * 1.125)</code><br><br>
+        Essa fórmula é responsável por calcular o Damage base do seu level conforme seu Power.<br><br><br></p>
+
+        <p><strong>Skill Damage (brute):</strong><br><code>Dano_Base_Skill + (Dano_Geral / 2) + (Dano_Base_Skill * Dano_Geral / 30)</code><br><br>
+        Fórmula responsável por calcular o Dano dado por uma skill a um oponente ignorando sua Defense.<br><br><br></p>
+
+        <p><strong>Critical Multiplier:</strong><br><code>1.75 + (Dexterity * 0.002)</code><br><br>
+        Seu dano crítico começa em 1.75x e aumenta com a Dexterity.<br><br><br></p>
+
+        <p><strong>Block Pen:</strong><br><code>Power * 0.05%</code><br><br>
+        Aumenta sua chance de ignorar completamente o bloqueio do inimigo.<br><br><br></p>
+
+        <h3>Atributos Defensivos</h3>
+        <p><strong>Max. Health (HP):</strong><br><code>(100 + 10 * (level - 1)) * (1 + Resistance * 0.03825)</code><br><br>
+        A Resistance multiplica sua vida base de nível, tornando-se mais eficaz em níveis altos.<br><br><br></p>
+
+        <p><strong>Damage Reduce (PvP):</strong><br>O dano em PvP é reduzido em duas etapas: uma subtração fixa da sua Defesa, e depois uma redução percentual com retornos decrescentes.<br>
+        A Redução de Dano pela Defesa é dividida tem Tiers. Tabela de redução de Dano pela Defesa:<br>
+        0~1000 defense: 1.8% redução de dano para cada 100 de defesa, ou seja, 18% nas 0~1k<br>
+        1001~2000 defense: 1.0% redução de dano para cada 100 de defesa, ou seja, 28% nas 1k~2k<br>
+        2001~3000 defense: 0.5% redução de dano para cada 100 de defesa, ou seja, 33% nas 2k~3k<br>
+        3001~5000 defense: 0.3% redução de dano para cada 100 de defesa, ou seja, 39% nas 3k~5k<br><br>
+        Isso significa que, quanto mais defesa, mais inútil ela se torna.<br><br><br></p>
+        
+
+        <h3>Atributos de Utilidade</h3>
+        <p><strong>Redução de Cooldown (CDR):</strong><br><code>(Dexterity * 0.01) / ((Dexterity * 0.01) + 8)</code><br><br>
+        Permite usar habilidades com mais frequência.<br>
+        O resultado dessa fórmula é uma porcentagem, que então é reduzida do cooldown inicial.<br>
+        Ex.: Dark Fales (25s de cooldown), com 800 dexterity, 0.5 (50%).<br>
+        50% de 25 = 12,5, ou 12 segundos aproximadamente.<br><br><br></p>
+
+        <p><strong>Eficácia de Buffs/Debuffs (Wisdom):</strong> <code>Base + (level * 0.1077) + Bônus_Tier_Wisdom</code><br><br>
+        Seu level e Wisdom (de Intelligence) aumentam a potência e duração de buffs, debuffs e curas.<br>
+        A fórmula real é muito mais complexa, porém foi abstraída e pode ser utilizada em exemplos práticos por essa apresentada.<br>
+        <code>Base</code> é o status base do teste, como por exemplo o Damage que um Buff dá.<br>
+        A fórmula apresentada não é 100% adequada para exemplos mais precisos, portanto use-a com cuidado<br>
+        o <code>Bônus_Tier_Wisdom</code> segue a seguinte tabela, assim como a redução de dano por Defense:<br>
+        0-100 de Wisdom: 0.66 de bônus de eficácia para cada ponto de Wisdom, ou seja, 66 de bônus nos primeiros 100 pontos.<br>
+        101-200 de Wisdom: 0.33 de bônus de eficácia para cada ponto de Wisdom nesta faixa, ou seja, 99 de bônus total ao atingir 200.<br>
+        201-300 de Wisdom: 0.20 de bônus de eficácia para cada ponto de Wisdom nesta faixa, ou seja, 119 de bônus total ao atingir 300.<br>
+        Ou seja, assim como a redução de dano pela Defense, quanto mais Wisdom, mais inútil ele se torna.<br>
+        De forma visual, quanto mais Wisdom um medic tiver, menos potência sua cura terá quando tiver mais Wisdom.</p>
+        
+        <h3>Os Segredos (Soft Caps)</h3>
+        <p>Investir em um atributo para sempre nem sempre é a melhor opção. O jogo tem "soft caps", pontos onde o benefício de um atributo muda ou para de aumentar.</p>
+        <div class="result-box">
+            <p><strong>400 Power:</strong> Atinge o <strong>teto de 20% de Penetração de Bloqueio</strong>. Mais Power não dará mais penetração.</p>
+            <p><strong>Wisdom:</strong> A eficácia dos buffs tem <strong>retornos decrescentes</strong>. Os primeiros 100-200 pontos são os mais impactantes.</p>
+            <p><strong>Defense:</strong> A eficácia da defesa tem <strong>retornos decrescentes</strong>. Os primeiros 0-1000 pontos são os mais impactantes que os 3000-4000.</p>
+        </div>
 
         <h3>Calculadora de Dano de Skill</h3>
         <div class="grid-container">
