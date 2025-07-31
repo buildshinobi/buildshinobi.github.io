@@ -32,7 +32,7 @@ const Formulas = {
         return Math.floor(totalBase * (1 + mana_perc_itens));
     },
     critChance: (dex, crit_perc_itens) => {
-        const baseCritChance = 28.0;
+        const baseCritChance = 26.0;
         const dexCritChance = dex * 0.3;
         const itemCritChance = crit_perc_itens * 100;
         return baseCritChance + dexCritChance + itemCritChance;
